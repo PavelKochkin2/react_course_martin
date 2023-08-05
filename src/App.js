@@ -1,3 +1,4 @@
+import Card from "./components/Card";
 import ExpenseItem from "./components/ExpenseItem";
 
 function App() {
@@ -27,7 +28,9 @@ function App() {
       <h2>Let's get started!</h2>
       {expenses.map((ex) => {
         return (
-          <ExpenseItem title={ex.title} amount={ex.amount} date={ex.date} />
+          <Card>
+            <ExpenseItem title={ex.title} amount={ex.amount} date={ex.date} />
+          </Card>
         );
       })}
     </div>
