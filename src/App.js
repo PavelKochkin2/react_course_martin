@@ -24,9 +24,14 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  const onNewExpenseSubmit = (event, state) => {
+    event.preventDefault();
+    console.log(state);
+  };
   return (
     <div>
-      <NewExpense />
+      <NewExpense onNewExpenseSubmit={onNewExpenseSubmit} />
       {expenses.map((ex) => {
         return (
           <Card>
