@@ -1,6 +1,7 @@
-import Card from "./components/Card";
-import ExpenseItem from "./components/ExpenseItem";
+import ExpensesFilter from "./components/ExpensesFilter";
 import NewExpense from "./components/NewExpense";
+import Expenses from "./components/Expenses";
+import { useState } from "react";
 
 function App() {
   const expenses = [
@@ -27,18 +28,13 @@ function App() {
 
   const onNewExpenseSubmit = (event, state) => {
     event.preventDefault();
-    console.log(state);
+    console.log({ ...state, id: Math.random().toString() });
   };
+
   return (
     <div>
       <NewExpense onNewExpenseSubmit={onNewExpenseSubmit} />
-      {expenses.map((ex) => {
-        return (
-          <Card>
-            <ExpenseItem title={ex.title} amount={ex.amount} date={ex.date} />
-          </Card>
-        );
-      })}
+      <Expenses expenses={expenses} />
     </div>
   );
 }

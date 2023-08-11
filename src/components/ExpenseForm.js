@@ -1,21 +1,23 @@
 import { useState } from "react";
 import "./ExpenseForm.css";
-
 // interface FormState {
 //   title: string;
 //   amount: string;
 //   date: Date;
 // }
 
+const defaultState = {
+  title: "",
+  amount: "",
+  date: new Date(),
+};
+
 const ExpenseForm = (props) => {
-  const [formState, setFormState] = useState({
-    title: "",
-    amount: "",
-    date: new Date(),
-  });
+  const [formState, setFormState] = useState(defaultState);
 
   const onFormSubmit = (event) => {
     props.formSubmitHandler(event, formState);
+    setFormState(defaultState);
   };
 
   const onTitleChange = (event) => {
