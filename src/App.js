@@ -37,7 +37,6 @@ function App() {
       return [newItem, ...prevState];
     });
   };
-
   return (
     <div>
       <NewExpense onNewExpenseSubmit={onNewExpenseSubmit} />

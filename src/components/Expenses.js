@@ -6,8 +6,6 @@ import ExpensesFilter from "./ExpensesFilter";
 export default function Expenses({ expenses }) {
   const [dateFilterValue, setDateFilterValue] = useState();
 
-  const incomingExpenses = expenses;
-
   const [filteredExpenses, setfilteredExpenses] = useState(expenses);
 
   const onFilterChanged = (event) => {
@@ -16,12 +14,24 @@ export default function Expenses({ expenses }) {
   };
 
   const filterExpenses = (selectedYear) => {
-    const filteredExpenses = incomingExpenses.filter(
+    const filteredExpenses = expenses.filter(
       (ex) => ex.date.toISOString().substring(0, 4) === selectedYear
     );
 
     setfilteredExpenses(filteredExpenses);
   };
+
+  console.log(hashCode(expenses.toString()));
+
+  function hashCode(string) {
+    var hash = 0;
+    for (var i = 0; i < string.length; i++) {
+      var code = string.charCodeAt(i);
+      hash = (hash << 5) - hash + code;
+      hash = hash & hash; // Convert to 32bit integer
+    }
+    return hash;
+  }
 
   return (
     <>
