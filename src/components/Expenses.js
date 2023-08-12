@@ -14,9 +14,9 @@ export default function Expenses({ expenses }) {
   };
 
   const filterExpenses = (selectedYear) => {
-    const filteredExpenses = expenses.filter(
-      (ex) => ex.date.toISOString().substring(0, 4) === selectedYear
-    );
+    const filteredExpenses = expenses.filter((ex) => {
+      return ex.date.getFullYear() == selectedYear;
+    });
 
     setfilteredExpenses(filteredExpenses);
   };
