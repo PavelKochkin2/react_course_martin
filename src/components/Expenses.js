@@ -1,8 +1,8 @@
 import React from "react";
-import ExpenseItem from "./ExpenseItem";
-import Card from "./Card";
 import { useState } from "react";
 import ExpensesFilter from "./ExpensesFilter";
+import ExpensesList from "./ExpensesList";
+
 export default function Expenses({ expenses }) {
   const [dateFilterValue, setDateFilterValue] = useState();
 
@@ -40,18 +40,7 @@ export default function Expenses({ expenses }) {
         selectedYear={dateFilterValue}
       />
       <div>Picked date in the filter: {dateFilterValue}</div>
-      {filteredExpenses.map((ex) => {
-        return (
-          <Card>
-            <ExpenseItem
-              title={ex.title}
-              amount={ex.amount}
-              date={ex.date}
-              key={ex.id}
-            />
-          </Card>
-        );
-      })}
+      <ExpensesList filteredExpenses={filteredExpenses} />
     </>
   );
 }

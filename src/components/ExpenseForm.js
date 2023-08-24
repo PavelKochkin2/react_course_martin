@@ -15,6 +15,12 @@ const defaultState = {
 const ExpenseForm = (props) => {
   const [formState, setFormState] = useState(defaultState);
 
+  const onCancelClicked = () => {
+    //props.onCancelClicked
+    //console.log(props.onCancel(false));
+    props.onCancel(false);
+  };
+
   const onFormSubmit = (event) => {
     props.formSubmitHandler(event, formState);
     setFormState(defaultState);
@@ -71,6 +77,9 @@ const ExpenseForm = (props) => {
       </div>
       <div className="new-expense__actions">
         <button type="submit">Add Expense</button>
+        <button type="button" onClick={onCancelClicked}>
+          Cancel
+        </button>
       </div>
     </form>
   );
