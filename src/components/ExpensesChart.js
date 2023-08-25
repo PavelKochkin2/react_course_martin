@@ -21,8 +21,6 @@ const ExpensesChart = (props) => {
     chartInputs[expenseMonth].value += expense.amount;
   }
 
-  console.log(chartInputs);
-
   return <Chart chartInput={chartInputs} />;
 };
 
