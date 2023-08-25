@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import ExpensesFilter from "./ExpensesFilter";
 import ExpensesList from "./ExpensesList";
-
+import ExpensesChart from "./ExpensesChart";
 export default function Expenses({ expenses }) {
   const [dateFilterValue, setDateFilterValue] = useState();
 
@@ -21,7 +21,7 @@ export default function Expenses({ expenses }) {
     setfilteredExpenses(filteredExpenses);
   };
 
-  console.log(hashCode(expenses.toString()));
+  //console.log(hashCode(expenses.toString()));
 
   function hashCode(string) {
     var hash = 0;
@@ -40,6 +40,7 @@ export default function Expenses({ expenses }) {
         selectedYear={dateFilterValue}
       />
       <div>Picked date in the filter: {dateFilterValue}</div>
+      <ExpensesChart expenses={filteredExpenses} />
       <ExpensesList filteredExpenses={filteredExpenses} />
     </>
   );

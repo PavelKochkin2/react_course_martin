@@ -16,8 +16,6 @@ const ExpenseForm = (props) => {
   const [formState, setFormState] = useState(defaultState);
 
   const onCancelClicked = () => {
-    //props.onCancelClicked
-    //console.log(props.onCancel(false));
     props.onCancel(false);
   };
 
